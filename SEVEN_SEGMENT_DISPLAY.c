@@ -34,6 +34,8 @@ void vDISPLAY_DISABLE(uint8 DISNUM){
 			break;
 	}
 }
+
+
 void vLED_WRITE(uint16 NUM){
 	int count = 0;
 	int Number = 0;
@@ -49,3 +51,38 @@ void vLED_WRITE(uint16 NUM){
 			vDISPLAY_DISABLE(DG3);
 			vDIGIT_NUMBER((int)(Number / 100));
 		}
+
+void vDIGIT_NUMBER(uint8 NUMBER){
+	switch(NUMBER){
+		case 0:
+			vGPIODATA_WRITE(GPIOB, 0X3F);
+			break;
+		case 1:
+			vGPIODATA_WRITE(GPIOB, 0X06);
+			break;
+		case 2:
+			vGPIODATA_WRITE(GPIOB, 0XDB);
+			break;
+		case 3:
+			vGPIODATA_WRITE(GPIOB, 0X4F);
+			break;
+		case 4:
+			vGPIODATA_WRITE(GPIOB, 0X66);
+			break;
+		case 5:
+			vGPIODATA_WRITE(GPIOB, 0X6D);	
+			break;
+		case 6:
+			vGPIODATA_WRITE(GPIOB, 0XFD);
+			break;
+		case 7:
+			vGPIODATA_WRITE(GPIOB, 0X07);
+			break;
+		case 8:
+			vGPIODATA_WRITE(GPIOB, 0XFF);
+			break;
+		case 9:
+			vGPIODATA_WRITE(GPIOB, 0XEF);
+			break;
+	}
+}

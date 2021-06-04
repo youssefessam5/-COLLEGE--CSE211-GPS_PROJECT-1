@@ -240,3 +240,72 @@ void vGPIOAFSEL_SET(uint8 PORT, uint8 VALUE){
             break;
     }
 }
+void vGPIODIR_SET(uint8 PORT, uint8 VALUE){
+	switch(PORT){
+		case GPIOA:
+			SET_BITS(GPIO_PORTA_DIR_R, VALUE, 0);
+			break;
+		case GPIOB:
+			SET_BITS(GPIO_PORTB_DIR_R, VALUE, 0);
+			break;
+		case GPIOC:
+			SET_BITS(GPIO_PORTC_DIR_R, VALUE, 0);
+			break;
+		case GPIOD:
+			SET_BITS(GPIO_PORTD_DIR_R, VALUE, 0);
+			break;
+		case GPIOE:
+			SET_BITS(GPIO_PORTE_DIR_R, VALUE, 0);
+			break;
+		case GPIOF:
+			SET_BITS(GPIO_PORTF_DIR_R, VALUE, 0);
+			break;
+	}
+}
+
+void vGPIODIR_RESET(uint8 PORT, uint8 VALUE){
+	switch(PORT){
+		case GPIOA:
+			CLEAR_BITS(GPIO_PORTA_DIR_R, VALUE, 0);
+			break;
+		case GPIOB:
+			CLEAR_BITS(GPIO_PORTB_DIR_R, VALUE, 0);
+			break;
+		case GPIOC:
+			CLEAR_BITS(GPIO_PORTC_DIR_R, VALUE, 0);
+			break;
+		case GPIOD:
+			CLEAR_BITS(GPIO_PORTD_DIR_R, VALUE, 0);
+			break;
+		case GPIOE:
+			CLEAR_BITS(GPIO_PORTE_DIR_R, VALUE, 0);
+			break;
+		case GPIOF:
+			CLEAR_BITS(GPIO_PORTF_DIR_R, VALUE, 0);
+			break;
+	}
+}
+
+void vGPIODEN_SET(uint8 PORT, uint8 VALUE){
+    switch(PORT){
+        case GPIOA:
+            GPIO_PORTA_DEN_R |= VALUE;
+            break;
+        case GPIOB:
+            GPIO_PORTB_DEN_R |= VALUE;
+            break;
+        case GPIOC:
+            GPIO_PORTC_DEN_R |= VALUE;
+            break;
+        case GPIOD:
+            GPIO_PORTD_DEN_R |= VALUE;
+            break;
+        case GPIOE:
+            GPIO_PORTE_DEN_R |= VALUE;
+            break;
+        case GPIOF:
+            GPIO_PORTF_DEN_R |= VALUE;
+            break;
+    }
+}
+
