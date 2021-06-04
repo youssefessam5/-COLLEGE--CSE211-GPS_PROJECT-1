@@ -37,11 +37,11 @@ void vDISPLAY_DISABLE(uint8 DISNUM){
 
 
 void vLED_WRITE(uint16 NUM){
-	if(NUM > 999)
-		return;
 	int count = 0;
 	int Number = 0;
 	int remainder = 0;
+	if(NUM > 999)
+		return;
 	while(1){
 		count = 10000;
 		Number = NUM;
