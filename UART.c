@@ -26,3 +26,32 @@ uint8 UART_TxAvailable(uint8 PORT){
 			return 0;
 		}	
 }
+void vUARTIBRD_WRITE(uint8 PORT, uint16 VALUE){
+
+	switch(PORT){
+		case UART0:
+			UART0_IBRD_R = VALUE;
+			break;
+		case UART1:
+			UART1_IBRD_R = VALUE;
+			break;
+		case UART2:
+			UART2_IBRD_R = VALUE;
+			break;
+		case UART3:
+			UART3_IBRD_R = VALUE;
+			break;
+		case UART4:
+			UART4_IBRD_R = VALUE;
+			break;
+		case UART5:
+			UART5_IBRD_R = VALUE;
+			break;
+		case UART6:
+			UART6_IBRD_R = VALUE;
+			break;	
+	    case UART7:
+			UART7_IBRD_R = VALUE;
+			break;	
+	}
+}

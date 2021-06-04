@@ -1,1 +1,24 @@
-//test
+#include "inc/STD_TYPES.h"
+#include "inc/tm4c123gh6pm.h"
+#include "inc/GPIO_CNFG.h"
+#include "inc/UART.h"
+#include "inc/Clock.h"
+#include "inc/UART_CNFG.h"
+#include "inc/GPIO.h"
+
+void vUART0_INIT(void){
+	vUARTCLOCK_SET(UART0);
+  	vGPIOCLOCK_SET(GPIOA);
+  	vUARTCTL_RESET(UART0, 0x0001);
+	vUARTIBRD_WRITE(UART0, 104);
+	vUARTFBRD_WRITE(UART0, 11);
+	vUARTLCRH_WRITE(UART0,0x70);
+	vUARTCTL_SET(UART0, 0x301);
+	vGPIOAFSEL_SET(GPIOA, 0x03);
+	vGPIOPCTL_RESET(GPIOA, 0, 0);
+	vGPIOPCTL_RESET(GPIOA, 1, 0);
+	vGPIOPCTL_SET(GPIOA, 0, 1);
+	vGPIOPCTL_SET(GPIOA, 1, 1);
+	vGPIODEN_SET(GPIOA, 0x03);
+	vGPIOAMSEL_RESET(GPIOA, 0x03);
+}
