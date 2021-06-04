@@ -15,7 +15,33 @@ void DELAY_MILLI(int n)
  {}
  
 }
+void vLCD_INT (void){
+     
+	  vGPIOCLOCK_SET(GPIOD);
+	  vGPIOCLOCK_SET(GPIOE);
+	  vGPIODIR_SET(GPIOD,0xFF );
+	  vGPIODIR_SET(GPIOE,0x03 );
+	  vGPIODEN_SET(GPIOD,0XFF);
+	  vGPIODEN_SET(GPIOE, 0X03);
+	  vLCD_CMD(Set5x7FontSize);  
+    vLCD_CMD(Function_set_8bit); 
+    vLCD_CMD(moveCursorRight); 
+    vLCD_CMD(clear_display); 
+    vLCD_CMD(cursorBlink); 
+ 
+}
 
+
+void vLCD_CMD(uint8 COMMAND)
+{
+	vGPIODATA_WRITE(GPIOE, 0x00);
+	vGPIODATA_WRITE(GPIOD, COMMAND);
+	vGPIODATA_WRITE(GPIOE, 0x01);
+	DELAY_MILLI (0);	 
+	vGPIODATA_WRITE(GPIOE, 0x00); 
+	  
+	
+}
 
 void vLCD_DATA(uint8 DATA)
 {
