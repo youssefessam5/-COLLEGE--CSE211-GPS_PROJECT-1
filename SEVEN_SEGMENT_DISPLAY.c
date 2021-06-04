@@ -37,6 +37,8 @@ void vDISPLAY_DISABLE(uint8 DISNUM){
 
 
 void vLED_WRITE(uint16 NUM){
+	if(NUM > 999)
+		return;
 	int count = 0;
 	int Number = 0;
 	int remainder = 0;
@@ -51,6 +53,39 @@ void vLED_WRITE(uint16 NUM){
 			vDISPLAY_DISABLE(DG3);
 			vDIGIT_NUMBER((int)(Number / 100));
 		}
+		else{
+			vDISPLAY_ENABLE(DG1);
+			vDISPLAY_DISABLE(DG2);
+			vDISPLAY_DISABLE(DG3);
+			vDIGIT_NUMBER((int)(Number / 100));
+		}
+		while(count--);
+		count = 10000;
+		Number = remainder;
+		remainder = Number % 10;
+		Number = Number - remainder;
+		if(Number >= 10){
+			vDISPLAY_ENABLE(DG2);
+			vDISPLAY_DISABLE(DG1);
+			vDISPLAY_DISABLE(DG3);
+			vDIGIT_NUMBER((int)(Number / 10));
+		}
+		else{
+			vDISPLAY_ENABLE(DG2);
+			vDISPLAY_DISABLE(DG1);
+			vDISPLAY_DISABLE(DG3);
+			vDIGIT_NUMBER((int)(Number / 10));
+		}
+		while(count--);
+		count = 10000;
+		Number = remainder;
+		vDISPLAY_ENABLE(DG3);
+		vDISPLAY_DISABLE(DG1);
+		vDISPLAY_DISABLE(DG2);
+		vDIGIT_NUMBER((int)Number);
+		while(count--);
+	}
+}
 
 void vDIGIT_NUMBER(uint8 NUMBER){
 	switch(NUMBER){
