@@ -309,3 +309,73 @@ void vGPIODEN_SET(uint8 PORT, uint8 VALUE){
     }
 }
 
+void vGPIOCR_RESET(uint8 PORT, uint8 VALUE){
+    switch(PORT){
+        case GPIOA:
+           GPIO_PORTA_CR_R &= ~VALUE;
+            break;
+        case GPIOB:
+           GPIO_PORTB_CR_R &= ~VALUE;
+            break;
+        case GPIOC:
+            GPIO_PORTC_CR_R &= ~VALUE;
+            break;
+        case GPIOD:
+            GPIO_PORTD_CR_R &= ~VALUE;
+            break;
+        case GPIOE:
+           GPIO_PORTE_CR_R &= ~VALUE;
+            break;
+        case GPIOF:
+           GPIO_PORTF_CR_R &= ~VALUE;
+            break;
+    }
+}
+
+
+void vGPIOCR_SET(uint8 PORT, uint8 VALUE){
+    switch(PORT){
+        case GPIOA:
+          GPIO_PORTA_CR_R |= VALUE;
+            break;
+        case GPIOB:
+           GPIO_PORTB_CR_R |= VALUE;
+            break;
+        case GPIOC:
+           GPIO_PORTC_CR_R |= VALUE;
+            break;
+        case GPIOD:
+           GPIO_PORTD_CR_R |= VALUE;
+            break;
+        case GPIOE:
+           GPIO_PORTE_CR_R |= VALUE;
+            break;
+        case GPIOF:
+           GPIO_PORTF_CR_R |= VALUE;
+            break;
+    }
+}
+
+void vGPIOPCTL_SET(uint8 PORT, uint8 PIN, uint8 VALUE){
+	switch(PORT){
+		case GPIOA:
+			SET_BITS(GPIO_PORTA_PCTL_R, VALUE, 4*PIN);
+			break;
+		case GPIOB:
+			SET_BITS(GPIO_PORTB_PCTL_R, VALUE, 4*PIN);
+			break;
+		case GPIOC:
+			SET_BITS(GPIO_PORTC_PCTL_R, VALUE, 4*PIN);
+			break;
+		case GPIOD:
+			SET_BITS(GPIO_PORTD_PCTL_R, VALUE, 4*PIN);
+			break;
+		case GPIOE:
+			SET_BITS(GPIO_PORTE_PCTL_R, VALUE, 4*PIN);
+			break;
+		case GPIOF:
+			SET_BITS(GPIO_PORTF_PCTL_R, VALUE, 4*PIN);
+			break;
+	}
+}
+
