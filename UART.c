@@ -55,3 +55,33 @@ void vUARTIBRD_WRITE(uint8 PORT, uint16 VALUE){
 			break;	
 	}
 }
+void vUARTCTL_SET(uint8 PORT, uint16 VALUE){
+	
+	switch(PORT){
+		case UART0:
+			SET_BITS(UART0_CTL_R, VALUE, 0);
+			break;
+		case UART1:
+			SET_BITS(UART1_CTL_R, VALUE, 0);
+			break;
+		case UART2:
+			SET_BITS(UART2_CTL_R, VALUE, 0);
+			break;
+		case UART3:
+			SET_BITS(UART3_CTL_R, VALUE, 0);
+			break;
+		case UART4:
+			SET_BITS(UART4_CTL_R, VALUE, 0);
+			break;
+		case UART5:
+			SET_BITS(UART5_CTL_R, VALUE, 0);
+			break;
+		case UART6:
+			SET_BITS(UART6_CTL_R, VALUE, 0);
+			break;	
+	  case UART7:
+			SET_BITS(UART7_CTL_R, VALUE, 0);
+			break;
+			
+	}	
+}
