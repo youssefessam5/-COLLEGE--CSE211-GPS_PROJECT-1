@@ -109,3 +109,33 @@ uint8 UART_RxAvailable(uint8 PORT){
 			
 	}	
 }
+void vUARTCTL_RESET(uint8 PORT, uint16 VALUE){
+	
+	switch(PORT){
+		case UART0:
+			CLEAR_BITS(UART0_CTL_R, VALUE, 0);
+			break;
+		case UART1:
+			CLEAR_BITS(UART1_CTL_R, VALUE, 0);
+			break;
+		case UART2:
+			CLEAR_BITS(UART2_CTL_R, VALUE, 0);
+			break;
+		case UART3:
+			CLEAR_BITS(UART3_CTL_R, VALUE, 0);
+			break;
+		case UART4:
+			CLEAR_BITS(UART4_CTL_R, VALUE, 0);
+			break;
+		case UART5:
+			CLEAR_BITS(UART5_CTL_R, VALUE, 0);
+			break;
+		case UART6:
+			CLEAR_BITS(UART6_CTL_R, VALUE, 0);
+			break;	
+	    case UART7:
+			CLEAR_BITS(UART7_CTL_R, VALUE, 0);
+			break;
+			
+	}	
+}
