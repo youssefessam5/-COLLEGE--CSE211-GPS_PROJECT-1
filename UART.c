@@ -103,7 +103,7 @@ uint8 UART_RxAvailable(uint8 PORT){
 			return((UART5_FR_R & 0x0010) != 0);
 		case UART6:
 			return((UART6_FR_R & 0x0010) != 0);
-	   case UART7:
+	        case UART7:
 			return((UART7_FR_R & 0x0010) != 0);
 		 default: return 0;
 			
