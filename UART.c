@@ -137,5 +137,65 @@ void vUARTCTL_RESET(uint8 PORT, uint16 VALUE){
 			CLEAR_BITS(UART7_CTL_R, VALUE, 0);
 			break;
 			
-	}	
+	}void vUARTFBRD_WRITE(uint8 PORT, uint8 VALUE){
+	
+		switch(PORT){
+		case UART0:
+			UART0_FBRD_R = VALUE;
+			break;
+		case UART1:
+			UART1_FBRD_R = VALUE;
+			break;
+		case UART2:
+			UART2_FBRD_R = VALUE;
+			break;
+		case UART3:
+			UART3_FBRD_R = VALUE;
+			break;
+		case UART4:
+			UART4_FBRD_R = VALUE;
+			break;
+		case UART5:
+			UART5_FBRD_R = VALUE;
+			break;
+		case UART6:
+			UART6_FBRD_R = VALUE;
+			break;	
+	    case UART7:
+			UART7_FBRD_R = VALUE;
+			break;	
+	}
+	
+}
+
+void vUARTLCRH_WRITE(uint8 PORT,uint8 VALUE){
+	
+	switch(PORT){
+		case UART0:
+			UART0_LCRH_R = VALUE;
+			break;
+		case UART1:
+			UART1_LCRH_R = VALUE;
+			break;
+		case UART2:
+			UART2_LCRH_R = VALUE;
+			break;
+		case UART3:
+			UART3_LCRH_R = VALUE;
+			break;
+		case UART4:
+			UART4_LCRH_R = VALUE;
+			break;
+		case UART5:
+			UART5_LCRH_R = VALUE;
+			break;
+		case UART6:
+			UART6_LCRH_R = VALUE;
+			break;	
+	    case UART7:
+			UART7_LCRH_R = VALUE;
+			break;	
+	}
+}
+	
 }
