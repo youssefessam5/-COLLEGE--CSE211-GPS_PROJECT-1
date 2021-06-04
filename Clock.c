@@ -1,1 +1,12 @@
-//Test
+#include "inc/STD_TYPES.h"
+#include "inc/tm4c123gh6pm.h"
+
+void vGPIOCLOCK_SET(uint8 PORT){
+	SET_BIT(SYSCTL_RCGCGPIO_R, PORT);
+	while(CHECK_BIT(SYSCTL_PRGPIO_R, PORT) == 0);
+}
+
+void vUARTCLOCK_SET(uint8 PORT){
+	SET_BIT(SYSCTL_RCGCUART_R, PORT);
+	while(CHECK_BIT(SYSCTL_PRUART_R, PORT) == 0);
+}
