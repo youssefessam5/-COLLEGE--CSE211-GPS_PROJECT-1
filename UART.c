@@ -79,9 +79,33 @@ void vUARTCTL_SET(uint8 PORT, uint16 VALUE){
 		case UART6:
 			SET_BITS(UART6_CTL_R, VALUE, 0);
 			break;	
-	  case UART7:
+	        case UART7:
 			SET_BITS(UART7_CTL_R, VALUE, 0);
 			break;
+			
+	}	
+}
+
+uint8 UART_RxAvailable(uint8 PORT){
+	
+	switch(PORT){
+		case UART0:
+			return((UART0_FR_R & 0x0010) != 0);
+		case UART1:
+			return((UART1_FR_R & 0x0010) != 0);
+		case UART2:
+			return((UART2_FR_R & 0x0010) != 0);
+		case UART3:
+			return((UART3_FR_R & 0x0010) != 0);
+		case UART4:
+			return((UART4_FR_R & 0x0010) != 0);
+		case UART5:
+			return((UART5_FR_R & 0x0010) != 0);
+		case UART6:
+			return((UART6_FR_R & 0x0010) != 0);
+	   case UART7:
+			return((UART7_FR_R & 0x0010) != 0);
+		 default: return 0;
 			
 	}	
 }
