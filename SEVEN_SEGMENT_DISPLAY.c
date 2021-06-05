@@ -37,18 +37,13 @@ void vDISPLAY_DISABLE(uint8 DISNUM){
 
 
 void vLED_WRITE(uint16 NUM){
-	nt x = 500;	  // FOR THE MAIN LOOP 100 - 1 SECOND
+	int x = 500;	  // FOR THE MAIN LOOP 100 - 1 SECOND
 	int count = 0; 	  // FOR INTERNAL LOOP
 	int Number = 0;
 	int remainder = 0;
 	if(NUM > 999)
 		return;
 	while(x--){	 // SHOULD BE WHILE(x--)
-	int count = 0;
-	int Number = 0;
-	int remainder = 0;
-	if(NUM > 999)
-		return;
 	while(1){
 		count = 10000;
 		Number = NUM;
@@ -125,13 +120,5 @@ void vDIGIT_NUMBER(uint8 NUMBER){
 			break;
 		case 9:
 			vGPIODATA_WRITE(GPIOB, 0XEF);
-			break;
-	nt x = 500;                                                                                                                  
-	int count = 0;                                                                                                                   
-	int Number = 0;
-	int remainder = 0;
-	  if(NUM > 999)
-                return;
-			
-	  while(x--){                                                                                                                       
+			break;                                                                                                                   
 }
