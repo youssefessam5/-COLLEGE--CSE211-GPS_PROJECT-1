@@ -1,54 +1,0 @@
-Dependencies for Project 'TivaC', Target 'Target 1': (DO NOT MODIFY !)
-F (.\startup_TM4C123.s)(0x60B82660)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123--list .\startup_tm4c123.lst --xref -o .\startup_tm4c123.o --depend .\startup_tm4c123.d)
-F (.\main.c)(0x60BA3B16)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (inc/STD_TYPES.h)(0x60B82665)
-I (inc/GPIO.h)(0x60B94058)
-I (inc/GPIO_CNFG.h)(0x60B93745)
-I (inc/Clock.h)(0x60BA34F7)
-I (inc/tm4c123gh6pm.h)(0x60B54659)
-I (inc/seven_segment_display.h)(0x60BA31DA)
-I (inc/UART.h)(0x60BA357D)
-I (inc/UARTINIT.h)(0x60BA357B)
-F (.\inc\Clock.h)(0x60BA34F7)()
-F (.\inc\GPIO.h)(0x60B94058)()
-F (.\inc\GPIO_CNFG.h)(0x60B93745)()
-F (.\inc\GPIO_PRIVATE.h)(0x60B3F070)()
-F (.\inc\LCD.h)(0x60B8BB6C)()
-F (.\inc\SEVEN_SEGMENT_DISPLAY.h)(0x60BA31DA)()
-F (.\inc\STD_TYPES.h)(0x60B82665)()
-F (.\inc\tm4c123gh6pm.h)(0x60B54659)()
-F (.\inc\UART.h)(0x60BA357D)()
-F (.\inc\UART_CNFG.h)(0x60BA357E)()
-F (.\inc\UARTINIT.h)(0x60BA357B)()
-F (.\Clock.c)(0x60BA3AA6)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\clock.o --omf_browse .\clock.crf --depend .\clock.d)
-I (inc/STD_TYPES.h)(0x60B82665)
-I (inc/tm4c123gh6pm.h)(0x60B54659)
-F (.\GPIO.c)(0x60BA3A44)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\gpio.o --omf_browse .\gpio.crf --depend .\gpio.d)
-I (inc/STD_TYPES.h)(0x60B82665)
-I (inc/tm4c123gh6pm.h)(0x60B54659)
-I (inc/GPIO_CNFG.h)(0x60B93745)
-F (.\SEVEN_SEGMENT_DISPLAY.c)(0x60BA3A44)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\seven_segment_display.o --omf_browse .\seven_segment_display.crf --depend .\seven_segment_display.d)
-I (inc/tm4c123gh6pm.h)(0x60B54659)
-I (inc/STD_TYPES.h)(0x60B82665)
-I (inc/GPIO_CNFG.h)(0x60B93745)
-I (inc/GPIO.h)(0x60B94058)
-F (.\LCD.c)(0x60BA45B9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\lcd.o --omf_browse .\lcd.crf --depend .\lcd.d)
-I (inc/STD_TYPES.h)(0x60B82665)
-I (inc/GPIO.h)(0x60B94058)
-I (inc/GPIO_CNFG.h)(0x60B93745)
-I (inc/Clock.h)(0x60BA34F7)
-I (inc/tm4c123gh6pm.h)(0x60B54659)
-I (inc/LCD.h)(0x60B8BB6C)
-F (.\UART.c)(0x60BA3A44)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
-I (inc/STD_TYPES.h)(0x60B82665)
-I (inc/tm4c123gh6pm.h)(0x60B54659)
-I (inc/GPIO_CNFG.h)(0x60B93745)
-I (inc/UART_CNFG.h)(0x60BA357E)
-F (.\UARTINIT.c)(0x60BA45B9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\uartinit.o --omf_browse .\uartinit.crf --depend .\uartinit.d)
-I (inc/STD_TYPES.h)(0x60B82665)
-I (inc/tm4c123gh6pm.h)(0x60B54659)
-I (inc/GPIO_CNFG.h)(0x60B93745)
-I (inc/UART.h)(0x60BA357D)
-I (inc/Clock.h)(0x60BA34F7)
-I (inc/UART_CNFG.h)(0x60BA357E)
-I (inc/GPIO.h)(0x60B94058)
