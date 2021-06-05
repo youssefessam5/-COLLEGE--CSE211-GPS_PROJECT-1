@@ -31,17 +31,21 @@ void SystemInit(){
 }
 
 int main(){
-		int distance; 																							// DISTANCE TO BE CALCULATED
+		int distance = 96; 																							// DISTANCE TO BE CALCULATED
 		vGPIODATA_WRITE(GPIOF, 0x08); 														// LIGHTS UP GREEN MEANS PROGRAM IS RUNNING
-		distance = calc_Distance(20.002,150.000,20.005,150.002); // EXAMPLE DISTANCE SHOULD BE 393 METRES
+		//distance = calc_Distance(20.002,150.000,20.005,150.002); // EXAMPLE DISTANCE SHOULD BE 393 METRES
 																														//AT END OF THE CODE TO PRINT THE DISTANCE WE HAVE CALCULATED
-		while(1){
+		while(1){ // WHILE LOOP TO UPDATE DISTANCE AND CHECKS IT
 			//UPDATE ENDING POINT
 			// UPDATE DISTANCE
-			if(distance >= MARGIN_ERROR){
+			vLED_WRITE(distance); // TAKES 5 SECONDS TO FINISH
+			distance++;
+			if(distance >= 100){
 				vGPIODATA_WRITE(GPIOF, 0X02); 										// LIGHT UP THE RED LED
 				break;
 			}
 		}
-		vLED_WRITE(distance); 																	// SHOULD LIGHT UP 393
+		while(1){ // KEEP WRITING 100
+			vLED_WRITE(distance); 																	// SHOULD LIGHT UP 393
+		}
 }
