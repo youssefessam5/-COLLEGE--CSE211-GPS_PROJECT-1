@@ -137,7 +137,9 @@ void vUARTCTL_RESET(uint8 PORT, uint16 VALUE){
 			CLEAR_BITS(UART7_CTL_R, VALUE, 0);
 			break;
 			
-	}void vUARTFBRD_WRITE(uint8 PORT, uint8 VALUE){
+	}
+}	
+void vUARTFBRD_WRITE(uint8 PORT, uint8 VALUE){
 	
 		switch(PORT){
 		case UART0:
@@ -196,6 +198,4 @@ void vUARTLCRH_WRITE(uint8 PORT,uint8 VALUE){
 			UART7_LCRH_R = VALUE;
 			break;	
 	}
-}
-	
 }
