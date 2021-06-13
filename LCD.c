@@ -1,4 +1,48 @@
-//test
+int initial = 0;
+void vLCD_INT (void){
+     
+	//FOR LCD CONTROL
+		vGPIOCLOCK_SET(GPIOA); // ENABLE CLOCK FOR A
+		vGPIODIR_SET(GPIOA, 0x1C); // ENABLE A2, A3, A4 as OUTPUT
+		vGPIODEN_SET(GPIOA, 0x1C); // SET IT TO DIGITAL
+	
+		// FOR LCD DATA
+		vGPIOCLOCK_SET(GPIOB); 													// CLOCK ENABLES PORTB
+		vGPIODIR_SET(GPIOB, 0xFF);										 // SETS ALL TO OUTPUT
+		vGPIODEN_SET(GPIOB, 0xFF);										 // SETS ALL TO DIGITAL
+		
+		DELAY_MILLI(20);
+		vLCD_CMD(0x30);
+		DELAY_MILLI(5);
+		vLCD_CMD(0x30);
+		DELAY_MICRO(100);
+		vLCD_CMD(0x030);
+	
+		vLCD_CMD(LCD5x7);
+		vLCD_CMD(shiftCursorRight);
+		vLCD_CMD(cleardisplay);
+		vLCD_CMD(cursorBlink);
+ 
+}
+void vLCD_STRING(uint8* str, uint8 amount)
+{
+	uint8* input=str;
+	uint8 i;
+	for ( i=0; i<amount;i++)
+	{
+			if(*(input+i) == '\0'){
+				return;
+			}
+			if(*(input+i) == '\n')
+				return;
+			if(i == 0)
+				vLCD_CMD(0x80);
+			else if(i == 16)
+				vLCD_CMD(0xC0);
+      vLCD_DATA(*(input+i)); 
+	}
+
+}
 void DELAY_MILLI(int n)
 {
  int i,j;
@@ -15,66 +59,5 @@ void DELAY_MILLI(int n)
  {}
  
 }
-void vLCD_INT (void){
-     
-	  vGPIOCLOCK_SET(GPIOD);
-	  vGPIOCLOCK_SET(GPIOE);
-	  vGPIODIR_SET(GPIOD,0xFF );
-	  vGPIODIR_SET(GPIOE,0x03 );
-	  vGPIODEN_SET(GPIOD,0XFF);
-	  vGPIODEN_SET(GPIOE, 0X03);
-	  vLCD_CMD(Set5x7FontSize);  
-    vLCD_CMD(Function_set_8bit); 
-    vLCD_CMD(moveCursorRight); 
-    vLCD_CMD(clear_display); 
-    vLCD_CMD(cursorBlink); 
- 
-}
 
-
-void vLCD_CMD(uint8 COMMAND)
-{
-	vGPIODATA_WRITE(GPIOE, 0x00);
-	vGPIODATA_WRITE(GPIOD, COMMAND);
-	vGPIODATA_WRITE(GPIOE, 0x01);
-	DELAY_MILLI (0);	 
-	vGPIODATA_WRITE(GPIOE, 0x00); 
-	  
-	
-}
-
-void vLCD_DATA(uint8 DATA)
-{
-	vGPIODATA_WRITE(GPIOE, 0x002);
-	vGPIODATA_WRITE(GPIOD, DATA);
-	vGPIODATA_WRITE(GPIOE, 0x001);
-	DELAY_MICRO(0);	 
-	vGPIODATA_WRITE(GPIOE, 0x00); 
-	  
-	
-}
-
-void vLCD_STRING(char* str)
-{
-	char* input=str;
-	uint8 i;
-	for ( i=0; i<sizeof(input);i++)
-	{
-      vLCD_DATA(*(input+i))	;
-	    DELAY_MICRO(0);	 
-	}
-
-}
-
-// PIN D0   D0
-// PIN D1   D1
-// PIN D2   D2
-// PIN D3   D3
-// PIN D4   D4
-// PIN D5   D5
-// PIN D6   D6
-// PIN D7   D7
-// PIN E0   E
-// PIN E1   RS
-// PIN E2   RW
 
