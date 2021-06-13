@@ -199,3 +199,7 @@ void vUARTLCRH_WRITE(uint8 PORT,uint8 VALUE){
 			break;	
 	}
 }
+uint8 u8UART_Receive(void){
+	while(UART_RxAvailable(UART7));
+	return ((uint8)(UART7_DR_R)&0xFF);
+}
