@@ -2,10 +2,21 @@
 #include "inc/STD_TYPES.h"
 #include "inc/GPIO_CNFG.h"
 #include "inc/GPIO.h"
+#include "inc/LCD.h"
 
-//DG1=12 PIN C5
-//DG2=9  PIN C6
-//DG3=8  PIN C7
+/***************************************************************
+*					DG12 -----------> C5
+*					DG2  -----------> C6
+*					DG3  -----------> C7
+*					
+*					A --------------> C4
+*					B --------------> D2
+*					C --------------> D3
+*					D --------------> E2
+*					E --------------> E3
+*					F --------------> E4
+*					G --------------> E5
+*****************************************************************/
 
 void vDISPLAY_ENABLE(uint8 DISNUM){
 	switch(DISNUM){
@@ -35,16 +46,15 @@ void vDISPLAY_DISABLE(uint8 DISNUM){
 	}
 }
 
-
+// IF YOU INSERT A DIGIT ABOVE 999 IT WON'T WORK
 void vLED_WRITE(uint16 NUM){
-	int x = 500;	  // FOR THE MAIN LOOP 100 - 1 SECOND
-	int count = 0; 	  // FOR INTERNAL LOOP
+	int x = 100; // FOR THE MAIN LOOP 100 - 1 SECOND
+	int count = 0; // FOR INTERNAL LOOP
 	int Number = 0;
 	int remainder = 0;
 	if(NUM > 999)
 		return;
-	while(x--){	 // SHOULD BE WHILE(x--)
-	while(1){
+	while(x--){ // SHOULD BE WHILE(x--)
 		count = 10000;
 		Number = NUM;
 		remainder = Number % 100;
@@ -87,16 +97,6 @@ void vLED_WRITE(uint16 NUM){
 		vDIGIT_NUMBER((int)Number);
 		while(count--);
 	}
-}
-
-void vRESET_PrevNumber(){
-	vGPIODATA_RESET(GPIOC, 4);
-	vGPIODATA_RESET(GPIOD, 2);
-	vGPIODATA_RESET(GPIOD, 3);
-	vGPIODATA_RESET(GPIOE, 2);
-	vGPIODATA_RESET(GPIOE, 3);
-	vGPIODATA_RESET(GPIOE, 4);
-	vGPIODATA_RESET(GPIOE, 5);
 }
 
 void vDIGIT_NUMBER(uint8 NUMBER){
