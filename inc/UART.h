@@ -13,7 +13,7 @@ void vUARTIBRD_WRITE(uint8 PORT, uint16 VALUE);
 void vUARTFBRD_WRITE(uint8 PORT, uint8 VALUE);
 //LCRH
 void vUARTLCRH_WRITE(uint8 PORT,uint8 VALUE);
-
+uint8 u8UART_Receive(void);
 
 #endif
 
