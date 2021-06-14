@@ -34,18 +34,29 @@ int main(){
 		int distance = 96; 																							// DISTANCE TO BE CALCULATED
 		vGPIODATA_WRITE(GPIOF, 0x08); 														// LIGHTS UP GREEN MEANS PROGRAM IS RUNNING
 		//distance = calc_Distance(20.002,150.000,20.005,150.002); // EXAMPLE DISTANCE SHOULD BE 393 METRES
-																														//AT END OF THE CODE TO PRINT THE DISTANCE WE HAVE CALCULATED
-		while(1){ // WHILE LOOP TO UPDATE DISTANCE AND CHECKS IT
-			//UPDATE ENDING POINT
-			// UPDATE DISTANCE
-			vLED_WRITE(distance); // TAKES 5 SECONDS TO FINISH
-			distance++;
-			if(distance >= 100){
-				vGPIODATA_WRITE(GPIOF, 0X02); 										// LIGHT UP THE RED LED
-				break;
-			}
+	
+	
+	
+		while(1){ // LOOP TO CHECK GPS
+		gpsLine = u8GPS_GETDATA(); //keep reading from GPS
+		endLong[trajCount] = fGET_LONGITUDE(gpsLine);
+		endLat[trajCount] = fGET_LATITUDE(gpsLine);
+		distance = calc_Distance(beginLat, beginLong, endLat[trajCount], endLong[trajCount]);
+		vLCD_CMD(cleardisplay);
+		vLCD_FIRSTLINE("LAT: ", 32, (int)endLat[trajCount]);
+		vLCD_SECONDLINE("LONG: ", 32, (int)endLong[trajCount]);
+		vLED_WRITE(distance);
+		trajCount++;
+		if(distance >= 100){
+			vGPIODATA_WRITE(GPIOF, 0x02);
+			vLCD_CMD(cleardisplay);
+			vLCD_FIRSTLINE("DISTANCE: ", 32, distance);
+			break;
 		}
-		while(1){ // KEEP WRITING 100
-			vLED_WRITE(distance); 																	// SHOULD LIGHT UP 393
-		}
+	}
+	while(1){ // LOOP TO WRITE LED
+		vLED_WRITE(distance);
+	}
+}
+
 }
