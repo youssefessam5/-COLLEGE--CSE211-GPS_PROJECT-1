@@ -10,3 +10,4 @@ uint8* u8GPS_GETLINE(void){
 	}
 	return line;
 }
+
