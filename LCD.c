@@ -50,6 +50,46 @@ void vLCD_STRING(uint8* str, uint8 amount)
 	}
 
 }
+
+void vLCD_NUMSTRING(uint8* str, uint8 amount, uint16 number){
+	int remainder;
+	int hundreds;
+	int tenth;
+	int units;
+	uint8 i;
+	uint8* input;
+	remainder = number % 100;
+	hundreds = number - remainder;
+	hundreds = hundreds / 100; 
+	tenth = remainder;
+	remainder = remainder % 10;
+	tenth = tenth - remainder;
+	tenth = tenth / 10;
+	units = remainder;
+	input=str;
+	for ( i=0; i<amount;i++)
+	{
+			if(strlen(str) > 13 && number != 0 && i >= 14){
+				vLCD_CMD(0xC0);
+			}
+			if(i == 16)
+				vLCD_CMD(0xC0);
+			if(*(input+i) == '\0'){
+				break;
+			}
+			if(*(input+i) == '\n')
+				break;
+			if(i == 0)
+				vLCD_CMD(0x80);
+      vLCD_DATA(*(input+i)); 
+	}
+	if(number != 0){
+		vLCD_DATA(hundreds + '0');
+		vLCD_DATA(tenth + '0');
+		vLCD_DATA(units + '0');
+	}
+}
+
 void vLCD_FIRSTLINE(uint8* str, uint8 amount, uint16 number){
 	int remainder;
 	int hundreds;
