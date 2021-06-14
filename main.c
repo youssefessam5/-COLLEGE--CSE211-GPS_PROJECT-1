@@ -93,11 +93,8 @@ int main(){
 			vLCD_CMD(cleardisplay);
 			vLCD_FIRSTLINE("DISTANCE: ", 32, distance);
 			break;
-		}
 	}
 	while(1){ // LOOP TO WRITE LED
 		vLED_WRITE(distance);
 	}
-}
-
 }
